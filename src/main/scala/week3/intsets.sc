@@ -3,11 +3,13 @@ val t2 = t1 incl 4
 abstract class IntSet {
   def incl(x: Int): IntSet
   def contains(x: Int): Boolean
+  def union(other: IntSet): IntSet
 }
 class Empty extends IntSet {
   def contains(x: Int): Boolean = false
   def incl(x: Int): IntSet = new NonEmpty(x, new Empty, new Empty)
   override def toString = "."
+  def union(other: IntSet) = other
 }
 class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
   def contains(x: Int): Boolean =
@@ -21,4 +23,6 @@ class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
     else this
 
   override def toString = "{" + left + elem + right + "}"
+  def union(other: IntSet): IntSet =
+    ((left union right) union other) incl elem
 }

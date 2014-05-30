@@ -21,7 +21,7 @@ object Nil extends List[Nothing] {
 
 object test {
   val x: List[String] = Nil
-  def f(xs: List[NonEmpty], x: Empty) = xs prepend x
+//  def f(xs: List[NonEmpty], x: Empty) = xs prepend x
 }
 
 object List {

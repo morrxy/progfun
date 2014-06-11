@@ -19,4 +19,11 @@ def isSafe(col: Int, queens: List[Int]): Boolean = {
   }
 }
 
-queens(8)
+def show(queens: List[Int]) = {
+  val lines = for (col <- queens.reverse)
+    yield Vector.fill(queens.length)("* ").updated(col, "X ").mkString
+  "\n" + (lines mkString "\n")
+}
+
+queens(4)
+(queens(4) map show) mkString "\n"

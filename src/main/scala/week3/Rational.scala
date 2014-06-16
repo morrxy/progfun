@@ -1,8 +1,5 @@
 package week3
 
-/**
- * Created by hj on 5/16/14.
- */
 class Rational(x: Int, y: Int) {
   require(y != 0, "denominator must be nonzero")
   def this(x: Int) = this(x, 1)
